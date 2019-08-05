@@ -1,0 +1,18 @@
+/* 	We are using the Baseline Css from material-ui
+	this file is only for additional stuff */
+
+.hButDiv {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.flexifyLogo {
+  display: block;
+  float: right;
+  width: 30%;
+}
+
+.MuiPaper-rounded {
+  border-radius: 10px;
+}

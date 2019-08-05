@@ -1,0 +1,16 @@
+.ConfirmationLogo {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	margin-top: 10px;
+}
+
+.ConfirmationText {
+	text-align: center;
+}
+
+.limehomepays,
+.try_again {
+	display: hide;
+}

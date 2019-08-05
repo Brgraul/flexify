@@ -1,0 +1,15 @@
+{
+	"short_name": "Flexify",
+	"name": "Flexify - Your stay, your way",
+	"icons": [
+		{
+			"src": "flexify.ico",
+			"sizes": "64x64 32x32 24x24 16x16",
+			"type": "image/x-icon"
+		}
+	],
+	"start_url": "/booking/daa1d51b23",
+	"display": "standalone",
+	"theme_color": "#000000",
+	"background_color": "#ffffff"
+}

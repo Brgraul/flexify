@@ -1,0 +1,30 @@
+:root{
+    --Main_color: #ff9ff3;
+    --Bg_color: #48dbfb;
+}
+
+h1, h2, h3, h4{
+    font-family: Roboto;
+}
+
+h3{
+    font-weight: 300;
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
+body > div{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+
+body > div > img{
+    width: 70%;
+}

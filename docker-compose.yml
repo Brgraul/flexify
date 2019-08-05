@@ -1,0 +1,84 @@
+version: '3.7'
+
+services:
+  ##############################################
+  # Setting up the Django backend
+  ##############################################
+  web:
+    build: ./backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend/:/usr/src/app/
+    ports:
+      - 8000:8000
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=foo
+      - SQL_ENGINE=django.db.backends.postgresql
+      - SQL_DATABASE=hello_django_dev
+      - SQL_USER=hello_django
+      - SQL_PASSWORD=hello_django
+      - SQL_HOST=db
+      - SQL_PORT=5432
+      - DATABASE=postgres
+    depends_on:
+      - db
+  ##############################################
+  # Reverse proxy to serve static assets
+  ##############################################
+  nginx:
+    build: ./nginx
+    ports:
+      - 1337:80
+    depends_on:
+      - web
+  ##############################################
+  # Setting up the production Postgres development database
+  ##############################################
+  db:
+    image: postgres:11.2-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=hello_django
+      - POSTGRES_PASSWORD=hello_django
+      - POSTGRES_DB=hello_django_dev
+  ##############################################
+  # Setting up the Hotel Guest Client
+  ##############################################
+  frontend-guest:
+    build: ./frontend/hotel_guest
+    command: nginx -g "daemon off;"
+    expose: 
+    - ${GUEST_PORT}
+    ports:
+    - ${GUEST_PORT}:${CONTAINER_OUT_PORT}
+    depends_on:
+    - web
+    - db
+  ##############################################
+  # Setting up the Cleaner Client
+  ##############################################
+  frontend-cleaner:
+    build: ./frontend/cleaner
+    command: nginx -g "daemon off;"
+    expose: 
+    - ${CLEANER_PORT}
+    ports:
+    - ${CLEANER_PORT}:${CONTAINER_OUT_PORT}
+
+  ##############################################
+  # Setting up the Hotel Manager Client
+  ##############################################
+  frontend-manager:
+    build: ./frontend/manager
+    command: nginx -g "daemon off;"
+    expose: 
+    - ${MANAGER_PORT}
+    ports:
+    - ${MANAGER_PORT}:${CONTAINER_OUT_PORT}
+##############################################
+# Setting up a volume to persist data across sessions
+##############################################    
+volumes:
+  postgres_data:
