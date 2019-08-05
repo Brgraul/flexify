@@ -32,7 +32,7 @@ export default props => {
             style={{marginRight:0}}
             color="primary"
           >
-            Logout
+            Register
           </Button>
         </Link>
       </label>

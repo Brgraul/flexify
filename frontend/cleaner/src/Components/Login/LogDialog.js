@@ -12,7 +12,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import FormControl from "@material-ui/core/FormControl";
 import { Grid } from "@material-ui/core";
 import ButtonLog from "./ButtonLog";
-import ButtonLogout from "./ButtonLogout";
+import ButtonRegister from "./ButtonRegister";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -85,7 +85,7 @@ export default function TextFields() {
             <ButtonLog />
           </Grid>
           <Grid item xs={6} align="right">
-            <ButtonLogout />
+            <ButtonRegister />
           </Grid>
         </Grid>
     </form>

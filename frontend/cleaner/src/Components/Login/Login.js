@@ -1,7 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
 import LogDialog from "./LogDialog";
-import ButtonLog from "./ButtonLog";
-import ButtonLogout from "./ButtonLogout";
 import LimehomeLogoDark from "../../Pictures/limehomeLogoDark.png";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
