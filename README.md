@@ -8,12 +8,20 @@
 
 
 ## Project setup :wrench:
-
 *For being able to run the development environment, you are expected to have installed the latest version of Docker Compose*
+
+### Preparing dev environment
+
+A bash script has been created to populate a dummy database and set up the necessary aspects to be able to run a demo.
 
 ```
 ./init.prod.sh
 >> Follow the instructions to create a Django super user
+```
+
+Once this setup is due, it is possible to run a demo of the whole environment by launching the second script: 
+
+```
 ./demo.sh
 >> For shutting down the docker containers, please use docker-compose -f docker-compose.prod.yml down
 ```
