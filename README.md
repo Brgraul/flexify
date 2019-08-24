@@ -18,7 +18,7 @@ A bash script has been created to populate a dummy database and set up the neces
 ./init.prod.sh
 >> Follow the instructions to create a Django super user
 ```
-
+### Launching a demo setup
 Once this setup is due, it is possible to run a demo of the whole environment by launching the second script: 
 
 ```
